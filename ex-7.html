@@ -65,6 +65,9 @@
             turn = 1;
             markedButtons = 1;
             win = 0;
+            blueTurn.innerText = 'Blue turn';
+            massege.innerText = '';
+            redTurn.innerText = '';
         }
         //check if all buttons are marked already
         function checkFull(){
@@ -117,10 +120,11 @@
                 }else{
                     if(!checkWin()){
                         markedButtons += 1;
-                        if(markedButtons == 9 ){
-
-                            massege.innerText = `Board is full, press the 'start new game button' to start a new game`;
+                        if(!checkFull()){
+                            win = 1;
+                            massege.innerText = `Board is full, press the 'start new game' button to start a new game`;
                         }
+                        
                         turn *= (-1);
                         //increase the amount of buttons in play
                         
